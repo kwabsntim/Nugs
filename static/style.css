@@ -1,0 +1,374 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+/* Hamburger Button Styles */
+.navbar-toggler {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Hamburger Bars */
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+/* Add space between bars */
+.bar:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+/* Active state: Turns into 'X' */
+.navbar-toggler.active .bar:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+}
+
+.navbar-toggler.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+.hero-section {
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+.hero-text {
+    text-align: left;
+    font-weight: 500;
+
+}
+.hero-text h2{
+    font-size: 65px;
+    font-weight: 900;
+
+}
+.hero-section p{
+    margin-bottom: 45px;
+}
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.nugs-button{
+    background-color:red;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+
+}
+.nugs-button:hover {
+    background-color:black;
+    text-decoration: none;
+    color: #fff;
+}
+.courses{
+    background-color:red;
+    min-height: 60vh;
+    align-items: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-bottom: 70px;
+}
+.edu-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-top: 30px;
+}
+.edu-card:hover {
+    transform: scale(1.05);
+    text-decoration: none;
+    color: black;
+}
+.edu-card img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+.cto-courses{
+
+        font-family: "Reenie Beanie", cursive;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        color: white;
+        font-size: 35px;
+    
+      
+}
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.wss{
+        font-family: "Reenie Beanie", cursive;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        color:black;
+        font-size: 35px;
+        margin-bottom:50px;
+}
+.testimonials{
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.testimonial-card {
+    background:black;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px black;
+    text-align: center;
+    position: relative;
+    max-width: 300px;
+    flex: 1 1 250px;
+    color: white;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  
+}
+/* Style for the popup overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Style for the popup content */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+/* Close button style */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Level buttons style */
+.levels-buttons button {
+    margin: 5px;
+}
+
+.testimonial-card:nth-child(even) {
+    transform: translateX(100px);
+}
+.testimonial-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.testimonial-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    border: 3px solid white;
+}
+.testimonial-card p {
+   font-style: italic;
+}
+footer {
+    background-color: red;
+    color: white;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-section h3 {
+    color: white;
+    font-family: "Reenie Beanie", cursive;
+    font-size: 30px;
+}
+
+.footer-section p,
+.footer-section a {
+    color:white ;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid white;
+}
+
+.footer-bottom a {
+    color:black;
+    font-style: bold;
+    font-style: italic;
+}
+.footer-logo{
+    width: 10px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .testimonials-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .hero-text {
+        text-align: center; /* Center text */
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem; /* Slightly reduce heading size */
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+}
+
+/* ✅ Mobile View (Small Screens) */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 15px;
+        margin-top: 140px;
+        
+    }
+
+    .hero-text {
+        margin-bottom: 20px;
+        min-height: 35vh;/* Add space below text */
+    }
+
+    .hero-text h2 {
+        font-size:40px ;
+        text-align: left;
+        font-weight: 500; /* Reduce heading size */
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
+    .hero-image img {
+        max-width: 90%; /* Prevent image from being too large */
+    }
+    .nugs-button{
+        margin-top: 20px;
+    }
+    .cto-courses{
+
+        font-family: "Reenie Beanie", cursive;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+    
+      
+}
+.edu-card{
+    font-size: 14px;
+}
+}
+
+/* ✅ Extra Small Screens (Phones) */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.8rem; /* Make heading even smaller */
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 10px 20px; /* Adjust button size */
+        font-size: 1rem;
+    }
+}

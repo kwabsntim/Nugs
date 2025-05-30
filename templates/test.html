@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabbed Navigation Example</title>
+  <style>
+    /* Page background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ECF3FA; /* Light blue background */
+    }
+
+    /* Container for the tabs */
+    .tab-nav {
+      display: flex;
+      gap: 20px;
+      background-color: #fff; /* White background for tabs */
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc; /* Subtle bottom border */
+      box-sizing: border-box;
+      overflow-x: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Each tab button */
+    .tab-nav button {
+      background: none;
+      border: none;
+      outline: none;
+      color: #666;            /* Default tab text color */
+      font-size: 20px;
+      cursor: pointer;
+      position: relative;
+      padding: 20px 0;
+      flex-shrink: 0;         /* Prevent buttons from shrinking */
+    
+    }
+
+    /* Hover effect on tab buttons */
+    .tab-nav button:hover {
+      color: black;
+    }
+
+    /* Active (selected) tab styling */
+    .tab-nav button.active {
+      color: red;        /* Active tab text color */
+      font-weight: bold;
+    }
+
+    /* Underline (blue bar) under the active tab */
+    .tab-nav button.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background-color: black; /* Blue underline for active tab */
+      border-radius: 2px;
+    }
+
+    /* Tab content sections */
+    .city {
+      display: none;         /* Hide all tab content by default */
+      background-color: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+      box-sizing: border-box;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      gap: 15px;
+      flex-direction: row;
+     
+    }
+
+    /* Show the currently active tab content */
+    .city.active {
+      display: block;
+    }
+
+    /* Responsive tweaks for mobile devices */
+    @media (max-width: 600px) {
+      .tab-nav {
+        flex-direction: row;
+        gap: 15px;
+        padding: 30px;
+      }
+
+      .tab-nav button {
+        font-size: 24px;
+        padding: 6px 0;
+      }
+
+      .city {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tab Navigation -->
+  <div class="tab-nav">
+    <button class="tab-button active" onclick="openCity('London', this)">Tab 1</button>
+    <button class="tab-button" onclick="openCity('Paris', this)">Tab 2</button>
+    <button class="tab-button" onclick="openCity('Tokyo', this)">Tab 3</button>
+    <button class="tab-button" onclick="openCity('NewYork', this)">Tab 4</button>
+  </div>
+
+  <!-- Tab Content Sections -->
+  <div id="London" class="city active">
+    <h2>Tab 1 Content</h2>
+    <p>This is the content for Tab 1 (London).</p>
+  </div>
+
+  <div id="Paris" class="city">
+    <h2>Tab 2 Content</h2>
+    <p>This is the content for Tab 2 (Paris).</p>
+  </div>
+
+  <div id="Tokyo" class="city">
+    <h2>Tab 3 Content</h2>
+    <p>This is the content for Tab 3 (Tokyo).</p>
+  </div>
+
+  <div id="NewYork" class="city">
+    <h2>Tab 4 Content</h2>
+    <p>This is the content for Tab 4 (New York).</p>
+  </div>
+
+  <script>
+    function openCity(cityId, button) {
+      // Hide all tab content
+      const allContent = document.getElementsByClassName('city');
+      for (let i = 0; i < allContent.length; i++) {
+        allContent[i].classList.remove('active');
+      }
+
+      // Remove 'active' class from all tab buttons
+      const allButtons = document.getElementsByClassName('tab-button');
+      for (let i = 0; i < allButtons.length; i++) {
+        allButtons[i].classList.remove('active');
+      }
+
+      // Show the selected tab's content
+      document.getElementById(cityId).classList.add('active');
+
+      // Mark this button as the active tab
+      button.classList.add('active');
+    }
+  </script>
+</body>
+</html>

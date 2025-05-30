@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="{{ url_for('static', filename='assets/nugs.png') }}" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Course Materials</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .edu-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+      cursor: pointer;
+      text-align: center;
+      padding: 10px;
+      height: 100%;
+    }
+    .edu-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .edu-card p {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #343a40;
+    }
+    .edu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .cto-courses {
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: #212529;
+    }
+    .header {
+      background-color:black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 30px;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="courses py-5">
+    <div class="container">
+    <div class="header">
+            <img src="{{ url_for('static', filename='assets/nugs.png') }}" alt="" style="width:40px;">
+            <h2>click on your course to find materials</h2>
+            <a href="{{ url_for('home') }}" class="btn btn-success">Home</a>
+    </div>
+      <div class="row g-4">
+        {% for course, image, label in [
+          ("Electrical", "assets/elect.jpg", "Electrical Eng"),
+          ("Mechanical", "assets/mech.jpg", "Mechanical Eng"),
+          ("Computer", "assets/comp.jpg", "Computer Eng"),
+          ("Mathematics", "assets/ds.png", "Mathematics"),
+          ("Geological", "assets/geology.jpg", "Geological Eng"),
+          ("Geomatics", "assets/geomatic.jpg", "Geomatics Eng"),
+          ("DataScience", "assets/comp.jpg", "Data Science"),
+          ("Civil", "assets/civil.jpg", "Civil Eng"),
+          ("Environmental", "assets/safe.jpg", "Env & Safety Eng")
+        ] %}
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="edu-card" onclick="selectCourse('{{ course }}')">
+              <img src="{{ url_for('static', filename=image) }}" alt="{{ label }}">
+              <p><strong>{{ label }}</strong></p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectCourse(course) {
+      // You can update this to show the level popup or redirect to level selection
+      window.selectedCourse = course;
+      document.getElementById('levelPopup').style.display = 'flex';
+      document.getElementById('popupTitle').innerText = `Select Level for ${course}`;
+    }
+  </script>
+
+  <!-- Optional Level Popup Modal -->
+  <div id="levelPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1050;">
+    <div style="background:white; padding:30px; border-radius:10px; text-align:center; width: 300px;">
+      <h4 id="popupTitle" style="margin-bottom: 20px;">Select Level</h4>
+      <div>
+        <button class="btn btn-primary btn-block mb-2" onclick="goToLevel(100)">Level 100</button>
+        <button class="btn btn-primary btn-block mb-2" onclick="goToLevel(200)">Level 200</button>
+        <button class="btn btn-primary btn-block mb-2" onclick="goToLevel(300)">Level 300</button>
+        <button class="btn btn-primary btn-block mb-3" onclick="goToLevel(400)">Level 400</button>
+        <button class="btn btn-secondary btn-block" onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goToLevel(level) {
+      const course = window.selectedCourse;
+      if (course) {
+        window.location.href = `/files/${course}/${level}`;
+      }
+    }
+    function closePopup() {
+      document.getElementById('levelPopup').style.display = 'none';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

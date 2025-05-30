@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-NUGS SRID</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Exo:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Reenie+Beanie&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='assets/nugs.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Image and text -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-4 fixed-top mb-5">
+    <a class="navbar-brand" href="#">
+        <img src="{{ url_for('static', filename='assets/nugs.png') }}" width="60" height="60" class="d-inline-block align-middle" alt="">
+        NUGS UMaT-SRID
+    </a>
+    <button class="navbar-toggler" type="button" id="hamburger" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.show" style="color: red;">Home <span class="sr-only">(current)</span></a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.show">gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.show">Executives</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Admin</a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row hero-section">
+        <!-- Left Text Section -->
+        <div class="col-lg-6 d-flex align-items-center">
+            <div class="hero-text">
+                <h2 class="display-4 fw-bold">Welcome to The NUGS Study Hub</h2>
+                <p class="lead">Find past questions, study materials, and resources to boost your academic success.</p>
+                <a href="{{url_for('select')}}" class="nugs-button">Get Started</a>
+            </div>
+        </div>
+
+        <!-- Right Image Section -->
+        <div class="col-lg-6 hero-image">
+            <img src="{{ url_for('static', filename='assets/download.jpg') }}" alt="Study Hub Image" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+    <h1 class="wss">What our students say</h1>
+    <div class="testimonials-container">
+        
+        <div class="testimonial-card">
+            <img src="student1.jpg" alt="Student 1">
+            <p>"The best part is that everything is well-organized and easy to find. This platform has truly improved my study habits and exam preparation!"</p>
+            <strong>Awura Aboagye Danquah</strong><br>
+            <span>Electrical Engineering Student (300)</span>
+        </div>
+        <div class="testimonial-card">
+            <img src="student2.jpg" alt="Student 2">
+            <p>"Having access to both study materials and past questions in one place has made my revision stress-free. I wish I had discovered this platform earlier!"</p>
+            <strong>Eshun Oliver</strong><br>
+            <span>Computer Engineering Student</span>
+        </div>
+        <div class="testimonial-card">
+            <img src="student3.jpg" alt="Student 3">
+            <p>"Great support from the staff when I had issues with my application. Excellent service overall."</p>
+            <strong>ebenezer tetteh</strong><br>
+            <span>Computer Science Student</span>
+        </div>
+    </div>
+
+</div>
+<div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+ 
+                <h3>About Us</h3>
+                <p>We are committed to  helping students find study materials to help boost their academics.</p>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Info</h3>
+                <p>Email: <a href="mailto:support@umatsridinternship.com">support@lnugs.com</a></p>
+                <p>Phone: <a href="tel:+233553602142">+233 553 602 142</a></p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">courses</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Executives</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© UMaT - SRID. All rights reserved.</p>
+            <p>Created by <a href="#">Ntim peter prince(kwabsntim)</a></p>
+        </div>
+    </footer>
+    
+</div>
+<!-- Modal for Level Selection -->
+<div id="levelPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1050;">
+    <div style="background:white; padding:30px; border-radius:10px; text-align:center; width: 300px;">
+      <h4 id="popupTitle" style="margin-bottom: 20px;">Select Level</h4>
+      <div>
+        <button class="btn btn-primary btn-block mb-2" onclick="goToLevel(100)">Level 100</button>
+        <button class="btn btn-primary btn-block mb-2" onclick="goToLevel(200)">Level 200</button>
+        <button class="btn btn-primary btn-block mb-2" onclick="goToLevel(300)">Level 300</button>
+        <button class="btn btn-primary btn-block mb-3" onclick="goToLevel(400)">Level 400</button>
+        <button class="btn btn-secondary btn-block" onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+ 
+
+
+
+<script src="{{ url_for('static', filename='nugs.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
