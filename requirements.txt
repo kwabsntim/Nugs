@@ -41,7 +41,6 @@ distro==1.7.0
 Django==5.1.6
 dnspython==2.7.0
 docutils==0.21.2
-duplicity==0.8.21
 email_validator==2.2.0
 exceptiongroup==1.2.2
 executing==2.2.0
